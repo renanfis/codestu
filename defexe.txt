@@ -1,0 +1,95 @@
+Sistema de Gerenciamento de Contatos em C++
+
+    Defina a Estrutura Contato:
+        Crie uma estrutura chamada Contato que armazene informações como nome, número de telefone e e-mail.
+
+struct Contato {
+    char nome[50];
+    char telefone[15];
+    char email[50];
+};
+
+Implemente Funções de Manipulação de Contatos:
+
+    Escreva funções para adicionar um novo contato, exibir todos os contatos, buscar um contato por nome, etc. Utilize alocação dinâmica de memória para lidar com uma lista dinâmica de contatos.
+
+
+void adicionarContato(Contato*& listaContatos, int& tamanho);
+void exibirContatos(const Contato* listaContatos, int tamanho);
+Contato* buscarContato(const Contato* listaContatos, int tamanho, const char* nome);
+// ... outras funções de manipulação de contatos
+
+Implemente Funções Recursivas:
+
+    Utilize funções recursivas para realizar operações como a busca de um contato por nome, remoção de um contato, etc.
+
+
+Contato* buscarContatoRecursivo(const Contato* listaContatos, int tamanho, const char* nome);
+void removerContatoRecursivo(Contato*& listaContatos, int& tamanho, const char* nome);
+// ... outras funções recursivas
+
+Salve e Carregue Dados em Arquivos:
+
+    Implemente funções para salvar a lista de contatos em um arquivo e carregar os contatos de um arquivo.
+
+
+void salvarContatosEmArquivo(const Contato* listaContatos, int tamanho, const char* nomeArquivo);
+void carregarContatosDeArquivo(Contato*& listaContatos, int& tamanho, const char* nomeArquivo);
+
+Menu Principal:
+
+    Crie um programa principal que apresente um menu para o usuário, permitindo que ele escolha entre várias operações, como adicionar contato, exibir contatos, buscar contato, salvar em arquivo, carregar de arquivo, sair, etc.
+
+
+    int main() {
+        // ... inicialização e declaração de variáveis
+        do {
+            // ... exibição do menu e processamento da escolha do usuário
+        } while (opcao != SAIR);
+        // ... liberar memória e encerrar o programa
+    }
+
+Essa atividade abrange várias áreas do C++, incluindo o uso de estruturas, alocação dinâmica de memória, ponteiros, funções recursivas e manipulação de arquivos. Ela proporcionará uma boa prática para a aplicação de conceitos fundamentais da linguagem em um contexto mais prático.
+User
+adicione tambem structs aninhadas 
+ChatGPT
+
+Claro, você pode estender a estrutura Contato para incluir uma struct aninhada que represente informações relacionadas ao endereço. Aqui está uma versão modificada que inclui uma estrutura Endereco aninhada:
+
+
+#include <iostream>
+#include <cstring>
+#include <fstream>
+
+using namespace std;
+
+struct Endereco {
+    char rua[50];
+    char cidade[30];
+    char estado[20];
+    char cep[10];
+
+struct Contato {
+    char nome[50];
+    char telefone[15];
+    char email[50];
+    Endereco endereco;  // Struct aninhada
+};
+
+void adicionarContato(Contato*& listaContatos, int& tamanho);
+void exibirContatos(const Contato* listaContatos, int tamanho);
+Contato* buscarContato(const Contato* listaContatos, int tamanho, const char* nome);
+void salvarContatosEmArquivo(const Contato* listaContatos, int tamanho, const char* nomeArquivo);
+void carregarContatosDeArquivo(Contato*& listaContatos, int& tamanho, const char* nomeArquivo);
+
+int main() {
+    // ... inicialização e declaração de variáveis
+    do {
+        // ... exibição do menu e processamento da escolha do usuário
+    } while (opcao != SAIR);
+    // ... liberar memória e encerrar o programa
+    return 0;
+}
+
+Agora, cada Contato possui um campo adicional chamado endereco, que é uma estrutura aninhada Endereco. Você pode expandir as funções para lidar com os dados do endereço conforme necessário. Por exemplo, você pode modificar a função adicionarContato para incluir informações de endereço.
+
